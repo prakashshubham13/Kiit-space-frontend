@@ -1,0 +1,18 @@
+<div class="partition"></div>
+<div class="popup ">
+    <form class="log-in " autocomplete="off " [formGroup]="postForm">
+        <h2>Edit <span> Post</span></h2>
+        <div class="title ">
+            <textarea cols="30 " rows="1 " placeholder="Title " name="username " id="username " formControlName="title" name="title" required></textarea>
+        </div>
+        <div class="subject ">
+            <textarea cols="30 " rows="1 " placeholder="Description " name="subject " formControlName="subject" required></textarea>
+        </div>
+        <div class="title ">
+            <textarea cols="30 " rows="1 " name="tags " placeholder="Add tags " formControlName="tags" required></textarea>
+        </div>
+        <p>{{mssg}}</p>
+        <div *ngIf="disable " class="loader "></div>
+        <button type="submit" (click)="editBlog()">Save Changes</button>
+    </form>
+</div>

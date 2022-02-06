@@ -1,0 +1,35 @@
+.box {
+    background-color: white;
+    border: 2px solid rgb(177, 177, 177);
+    padding: 15px;
+    height: 50vh;
+    border-radius: 20px;
+}
+
+.title {
+    color: crimson;
+    font-weight: 200;
+}
+
+button {
+    -webkit-appearance: none;
+    width: auto;
+    min-width: 50px;
+    border-radius: 24px 24px 24px 24px;
+    text-align: center;
+    padding: 15px 10px;
+    border: none;
+    background-color: #8cc2ff;
+    color: rgb(255, 58, 58);
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0px 2px 6px -1px rgba(0, 0, 0, .13);
+    box-shadow: 5px 5px 10px rgba(136, 187, 255, 0.7);
+    margin-left: 15px;
+}
+
+.option {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+}

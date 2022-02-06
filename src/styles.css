@@ -1,0 +1,90 @@
+    /* You can add global styles to this file, and also import other style files */
+
+    @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
+    * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+    }
+
+    body {
+        background-image: url(https://images5.alphacoders.com/492/492784.jpg);
+        background-size: cover;
+        background-repeat:no-repeat ;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    .popup {
+        width: 60vw;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    body::-webkit-scrollbar {
+        width: 0px;
+    }
+
+    body::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(31, 184, 255, 0.9);
+        box-shadow: inset 0 0 6px rgba(160, 160, 160, 0.3);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        -webkit-box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.5);
+        box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.5)
+    }
+
+    .partition {
+        height: 9vh;
+        background-color: rgb(95, 164, 255);
+        width: 100vw;
+    }
+
+    .loader {
+        border: 2px solid #c9c9c9;
+        border-top: 2px solid #3498db;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        -webkit-animation: spin 2s linear infinite;
+        animation: spin 2s linear infinite;
+    }
+
+    @-webkit-keyframes spin {
+        0% {
+            -webkit-transform: rotate(0deg);
+        }
+        100% {
+            -webkit-transform: rotate(360deg);
+        }
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    @media only screen and (max-width: 600px) {
+        .popup {
+            width: 90%;
+        }
+        .partition {
+            height: 8vh;
+        }
+    }

@@ -1,0 +1,10 @@
+<div class="topnav" id="myTopnav" *ngIf="_auth.loggedIn()">
+    <a routerLink="/allposts" class="brand" disabled>Kiit SpacE</a>
+    <a routerLink="/allposts" routerLinkActive="active">All Blogs</a>
+    <a routerLink="/myposts" routerLinkActive="active">My Blogs</a>
+    <a [routerLink]="['/profile','_self']" routerLinkActive="active">Profile</a>
+    <a href="#about" style="float: right;margin-right: 10px;" *ngIf="_auth.loggedIn()" (click)="_auth.logoutUser()">LogOut</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
+</div>

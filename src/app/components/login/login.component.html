@@ -1,0 +1,70 @@
+<div class="form-body">
+    <div class="session" @scrolldown>
+        <div class="left"></div>
+        <form class="log-in" autocomplete="off" [formGroup]="loginForm">
+            <div class="error" *ngIf="error">
+                <p>{{ error }}</p>
+            </div>
+            <div class="success" *ngIf="success">
+                <p>{{ success }}</p>
+            </div>
+            <h4>KiiT <span>SpacE</span></h4>
+            <p>Create an account</p>
+            <div class="floating-label">
+                <input placeholder="Username " type="text " name="username " id="username " formControlName="username" name="username" [ngClass]="{
+            'is-invalid':
+              (loginForm.get('username')?.touched ||
+                loginForm.get('username')?.dirty) &&
+              !loginForm.get('username')?.valid
+          }" required />
+                <label for="email ">Username:</label>
+            </div>
+            <span class="invalid" *ngIf="
+          loginForm.controls['username'].invalid &&
+          (loginForm.controls['username'].dirty ||
+            loginForm.controls['username'].touched)
+        ">
+        <span *ngIf="loginForm.get('username')?.errors?.required">
+          Please enter username
+        </span>
+            <span *ngIf="loginForm.get('username')?.errors?.minlength">
+          Username must be longer than 3 characters
+        </span>
+            </span>
+            <div class="floating-label">
+                <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{
+            'is-invalid':
+              (loginForm.get('password')?.touched ||
+                loginForm.get('password')?.dirty) &&
+              !loginForm.get('password')?.valid
+          }" required />
+                <label for="password">Password:</label>
+            </div>
+            <span class="invalid" *ngIf="
+          loginForm.controls['password'].invalid &&
+          (loginForm.controls['password'].dirty ||
+            loginForm.controls['password'].touched)
+        ">
+        <span *ngIf="loginForm.get('password')?.errors?.required">
+          Please enter your password
+        </span>
+            <span *ngIf="loginForm.get('password')?.errors?.pattern">
+          Please enter a valid password
+        </span>
+            </span>
+            <div *ngIf="disabled" class="loader"></div>
+            <button type="submit" [disabled]="disabled" *ngIf="!disabled" (click)="loginUser()">
+        Login
+      </button>
+            <br />
+            <div class="alert">
+              <a href="/forgotpassowrd" class="discrete">Forgot Password</a>
+          </div>
+          <br />
+            <div class="alert">
+                <p>Create an account</p>
+                <a href="/register " class="discrete">Signup</a>
+            </div>
+        </form>
+    </div>
+</div>

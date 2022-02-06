@@ -1,0 +1,28 @@
+<div class="popup box">
+    <div class="title">
+        <p>Edit Email Id</p>
+        <br>
+        <p> Current Email Id: <span>{{emailid}}</span></p>
+        <br>
+        <form class="log-in " autocomplete="off " [formGroup]="postForm">
+
+            <div class="floating-label ">
+                <input placeholder="Email " type="text " name="mail " id="email" formControlName="email" name="email" [ngClass]="{ 'is-invalid': (postForm.get( 'email')?.touched || postForm.get( 'email')?.dirty) && !postForm.get(
+        'email')?.valid }" required>
+            </div>
+            <span class="invalid" *ngIf="postForm.controls['email'].invalid && (postForm.controls['email'].dirty || postForm.controls['email'].touched)">
+      <span *ngIf="postForm.get('email')?.errors?.required">
+        Please enter email id
+      </span>
+            <span *ngIf="postForm.get('email')?.errors?.email">
+        Please enter a valid email id
+      </span>
+            </span>
+        </form>
+        <br>
+        <div class="loader" *ngIf="disable"></div>
+    </div>
+    <div class="option">
+        <button type="submit" (click)="updateUserEmail()" [disabled]="disable">Save Changes</button>
+        <button (click)="close()">No</button></div>
+</div>

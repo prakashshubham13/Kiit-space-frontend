@@ -1,0 +1,125 @@
+<div class="form-body">
+    <div class="session" @scrollup>
+        <div class="left"></div>
+        <form [formGroup]="registerForm" (ngSubmit)="registerUser()" class="log-in" autocomplete="off">
+            <h4>KiiT <span>SpacE</span></h4>
+            <div class="error" *ngIf="error">
+                <p>{{ error }}</p>
+            </div>
+            <div class="success" *ngIf="success">
+                <p>{{ success }}</p>
+            </div>
+            <p>Create an account</p>
+            <div class="floating-label">
+                <input placeholder="Username " type="text " name="username " id="username " formControlName="username" name="username" [ngClass]="{
+            'is-invalid':
+              (registerForm.get('username')?.touched ||
+                registerForm.get('username')?.dirty) &&
+              !registerForm.get('username')?.valid
+          }" required />
+                <label for="email ">Username:</label>
+            </div>
+            <span class="invalid" *ngIf="
+          registerForm.controls['username'].invalid &&
+          (registerForm.controls['username'].dirty ||
+            registerForm.controls['username'].touched)
+        ">
+        <span *ngIf="registerForm.get('username')?.errors?.required">
+          Please enter username
+        </span>
+            <span *ngIf="registerForm.get('username')?.errors?.minlength">
+          Username must be longer than 3 characters
+        </span>
+            </span>
+            <div class="floating-label">
+                <input placeholder="Email " type="email" name="mail " id="email" formControlName="email" name="email" [ngClass]="{
+            'is-invalid':
+              (registerForm.get('email')?.touched ||
+                registerForm.get('email')?.dirty) &&
+              !registerForm.get('email')?.valid
+          }" required />
+                <label for="email ">Email:</label>
+            </div>
+            <span class="invalid" *ngIf="
+          registerForm.controls['email'].invalid &&
+          (registerForm.controls['email'].dirty ||
+            registerForm.controls['email'].touched)
+        ">
+        <span *ngIf="registerForm.get('email')?.errors?.required">
+          Please enter email id
+        </span>
+            <span *ngIf="registerForm.get('email')?.errors?.pattern">
+          Please enter a valid email id
+        </span>
+            </span>
+
+            <div formGroupName="passwordGroup">
+                <div class="floating-label">
+                    <input type="password" class="form-control" placeholder="Password" formControlName="password" [ngClass]="{
+              'is-invalid':
+                registerForm.get('passwordGroup')?.errors ||
+                ((registerForm.get('passwordGroup.password')?.touched ||
+                  registerForm.get('passwordGroup.password')?.dirty) &&
+                  !registerForm.get('passwordGroup.password')?.valid)
+            }" required />
+                    <label for="password ">Password:</label>
+                </div>
+                <span class="invalid" *ngIf="
+            registerForm.get('passwordGroup')?.errors ||
+            ((registerForm.get('passwordGroup.password')?.touched ||
+              registerForm.get('passwordGroup.password')?.dirty) &&
+              !registerForm.get('passwordGroup.password')?.valid)
+          ">
+          <span
+            *ngIf="registerForm.get('passwordGroup.password')?.errors?.required"
+          >
+            Please enter your password
+          </span>
+                <span *ngIf="
+              registerForm.get('passwordGroup.password')?.errors?.password ||
+              registerForm.get('passwordGroup.password')?.errors?.pattern
+            ">
+            Please enter a valid password
+          </span>
+                </span>
+                <div class="floating-label">
+                    <input type="password" placeholder="Confirm Password " formControlName="confirmpassword" [ngClass]="{
+              'is-invalid':
+                registerForm.get('passwordGroup')?.errors ||
+                ((registerForm.get('passwordGroup.confirmpassword')?.touched ||
+                  registerForm.get('passwordGroup.confirmpassword')?.dirty) &&
+                  !registerForm.get('passwordGroup.confirmpassword')?.valid)
+            }" required />
+                    <label for="password ">Confirm Password:</label>
+                </div>
+                <span class="invalid" *ngIf="
+            registerForm.get('passwordGroup')?.errors ||
+            ((registerForm.get('passwordGroup.confirmpassword')?.touched ||
+              registerForm.get('passwordGroup.confirmpassword')?.dirty) &&
+              !registerForm.get('passwordGroup.confirmpassword')?.valid)
+          ">
+          <span
+            *ngIf="
+              registerForm.get('passwordGroup.confirmpassword')?.errors
+                ?.required
+            "
+          >
+            Confirm your password
+          </span>
+                <span *ngIf="registerForm.get('passwordGroup')?.errors?.match">
+            The confirmation does not match.
+          </span>
+                </span>
+            </div>
+            <div class="loader" *ngIf="disable"></div>
+            <button type="submit " (click)="registerUser()" [disabled]="disable">
+        Register
+      </button>
+            <br />
+            <div class="alert">
+                <p>Already have an account</p>
+                <a href="/login " class="discrete">Login</a>
+            </div>
+        </form>
+    </div>
+</div>

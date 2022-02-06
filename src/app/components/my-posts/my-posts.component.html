@@ -1,0 +1,101 @@
+<div class="partition" *ngIf="!child"></div>
+<app-no-post *ngIf=" posts.length===0 && loading===false && owner "></app-no-post>
+<div class="blog-body " *ngIf="posts.length>0">
+    <div *ngFor="let p of owner?posts:(posts|private) ">
+        <div class="blog-slider ">
+            <div>
+                <div class="blog-slider-item ">
+                    <div class="blog-img ">
+                        <img src="../../../assets/b.png" alt=" " />
+                    </div>
+                    <div class="blog-content ">
+                        <span class="blog-code ">{{ p.date | date: "dd/MM/yyyy " }}</span>
+                        <span class="blog-code ">{{ p.date | date: "hh:mm:ss " }}</span>
+                        <div class="blog-info ">
+                            <div class="blog-title ">{{ p.title }}</div>
+                            <span class="blog-code ">by-{{ p.creator_name }}</span>
+                        </div>
+                        <div class="blog-text ">
+                            <p>{{ p.subject }}</p>
+                        </div>
+                        <p style="display:none ">{{owner}}</p>
+                        <span class="blog-code ">Tags: {{ p.tags }}</span>
+                        <div class="blog-panel ">
+                            <div>
+                                <div *ngIf=" p.likedby.indexOf(profile_id)> -1; then content; else other_content "> here is ignored
+                                </div>
+                                <ng-template #content><button class="blog-button send like" [disabled]="like" (click)="unlikeblog(p._id)">
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                  </button>
+                                    <span class="blog-code">{{ p.likes }} Likes</span>
+                                </ng-template>
+                                <ng-template #other_content>
+                                    <button class="blog-button like" [disabled]="like" (click)="likeblog(p._id)">
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                  </button>
+                                    <span class="blog-code">{{ p.likes }} Likes</span>
+                                </ng-template>
+                            </div>
+
+                            <div>
+                                <div *ngIf="
+                p.dislikedby.indexOf(profile_id) > -1;
+                then content_dislike;
+                else other_content_dislike
+              ">
+                                    here is ignored
+                                </div>
+                                <ng-template #content_dislike><button class="blog-button send like" [disabled]="like" (click)="likeblog(p._id)">
+                                <i class="fa fa-thumbs-down"></i>
+              </button>
+                                    <span class="blog-code">{{ p.dislikes }} Dislikes</span>
+                                </ng-template>
+                                <ng-template #other_content_dislike>
+                                    <button class="blog-button like" [disabled]="like" (click)="unlikeblog(p._id)">
+                                    <i class="fa fa-thumbs-down"></i>
+              </button>
+                                    <span class="blog-code">{{ p.dislikes }} Dislikes</span>
+                                </ng-template>
+                            </div>
+
+
+                            <div>
+                                <a class="blog-button send" [routerLink]="['/comment', p._id]"><i class="fa fa-paper-plane" aria-hidden="true "></i
+                ></a>
+                                <span class="blog-code">{{ p.commentcount }} Comments</span>
+                            </div>
+                        </div>
+                        <div class="blog-post" *ngIf="owner">
+                            <div>
+                                <button class="blog-button transparent" (click)="togglelock(p._id, p.private)">
+                  <i
+                    class="fa fa-unlock"
+                    aria-hidden="true"
+                    *ngIf="!p.private"
+                  ></i>
+                  <i
+                    class="fa fa-lock"
+                    aria-hidden="true"
+                    *ngIf="p.private"
+                  ></i>
+                </button>
+                            </div>
+                            <div>
+                                <button class="blog-button send" [routerLink]="['/editpost', p._id]">
+                  <i class="fa fa-edit"></i>
+                </button>
+                            </div>
+                            <div>
+                                <button class="blog-button delete" (click)="deleteBlog(p._id)">
+                  <i class="fa fa-trash"></i>
+                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider" />
+        <br />
+    </div>
+</div>

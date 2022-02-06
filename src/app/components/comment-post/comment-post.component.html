@@ -1,0 +1,50 @@
+<div class="partition"></div>
+<br>
+<div class="comment-body">
+    <div class="blog-body">
+        <h3>Posted by: {{ posts?.creator_name }}</h3>
+        <br />
+        <h4>Title: {{ posts?.title }}</h4>
+        <p>Content: {{ posts?.subject }}</p>
+        <br /> Tags:
+        <p class="tags">{{ posts?.tags }}</p>
+    </div>
+    <div class="popup" *ngIf="commentpopup">
+        <form class="log-in " autocomplete="off " [formGroup]="postForm">
+            <textarea name="text" id="" cols="30" rows="1" formControlName="text">
+        </textarea>
+            <br>
+            <h5>{{mssg}}</h5>
+            <br>
+            <div class="options">
+
+                <button (click)="updateComment()">Save Changes</button>
+                <button (click)="togglePopUp()">cancel</button> </div>
+        </form>
+    </div>
+    <div class="comment-section">
+        <div class="comment-scroll" *ngFor="let comment of posts?.comments">
+
+            <div *ngIf="userid===comment?.commentator " style="float:right">
+                <button class="blog-button delete" (click)="deleteComment(comment?._id)">
+            <i class="fa fa-trash"></i>
+            </button>
+            </div>
+            <h5 class="commentor">Commented by- {{ comment?.commentator }}</h5>
+            <br>
+            <p>Comment- {{ comment?.comment }}</p>
+            <div *ngIf="userid===comment?.commentator " style="float:left">
+                <button class="blog-button" (click)="togglePopUp(comment?._id,comment?.comment)">
+                  <i class="fa fa-edit"></i>
+          </button>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div class="add-comment">
+        <textarea name="" id="" cols="30" rows="1" placeholder="Add your comment" [(ngModel)]="mycomment"></textarea>
+        <button (click)="postComment()" [disabled]="disable">
+      <i class="fa fa-paper-plane" aria-hidden="true"></i>
+    </button>
+    </div>
+</div>

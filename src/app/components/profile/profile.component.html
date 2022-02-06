@@ -1,0 +1,58 @@
+<div class="partition"></div>
+<div class="blog-body">
+    <div>
+        <div class="blog-slider" @slide>
+            <div>
+                <div class="blog-slider-item">
+                    <div class="blog-img">
+                        <img src="../../../assets/b.png" alt="" />
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-code">Name:{{ profileDetails?.username }}</div>
+                        <span class="blog-code">Email:{{ profileDetails?.email }}</span>
+                        <div class="blog-text">
+                            <div class="options" *ngIf="admin">
+                                <i class="fa fa-edit" (click)="toggleEditModal()"></i>
+                                <i class="fa fa-key" aria-hidden="true" (click)="toggleEditPasswordModal()"></i>
+                                <i class="fa fa-trash" (click)="toggleDeleteModal()"></i>
+                            </div>
+                        </div>
+
+                        <button (click)="togglepopup()" *ngIf="admin">Add Post</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="divider" />
+        <br />
+        <div class="Modal" *ngIf="deleteModal" @new>
+            <app-delete-alert (deleteUser)="deleteUser()" (closeModal)="toggleDeleteModal()"></app-delete-alert>
+        </div>
+        <div class="Modal" *ngIf="editModal" @new>
+            <app-edit-popup [emailid]="profileDetails?.email" (updatePage)="getProfileDetails()" (closeModal)="toggleEditModal()"></app-edit-popup>
+        </div>
+        <div class="Modal" *ngIf="editPasswordModal" @new>
+            <app-edit-profile-password (closeModal)="toggleEditPasswordModal()"></app-edit-profile-password>
+        </div>
+        <div class="popup" @fade *ngIf="popup">
+            <form class="log-in" autocomplete="off " [formGroup]="postForm">
+                <i class="fa fa-times-circle close" (click)="togglepopup()"></i>
+                <h4>Add <span> Post</span></h4>
+                <div class="title">
+                    <textarea cols="30 " rows="1 " placeholder="Title " name="username " id="username " formControlName="title" name="title" required></textarea>
+                </div>
+                <div class="subject">
+                    <textarea cols="30 " rows="1 " placeholder="Description " name="subject " formControlName="subject" required></textarea>
+                </div>
+                <div class="title">
+                    <textarea cols="30 " rows="1 " name="tags " placeholder="Add tags " formControlName="tags" required></textarea>
+                </div>
+                <p>{{ mssg }}</p>
+                <div *ngIf="disabled" class="loader"></div>
+                <button type="submit " (click)="addPost()">Post</button>
+            </form>
+        </div>
+    </div>
+
+    <app-my-posts [owner]="admin" [ownerusername]="profileDetails?.username" [child]="child"></app-my-posts>
+</div>

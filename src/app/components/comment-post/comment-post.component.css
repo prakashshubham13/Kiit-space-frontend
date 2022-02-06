@@ -1,0 +1,181 @@
+.comment-body {
+    height: 80vh;
+    width: 90vw;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.blog-body {
+    color: #eeeeee;
+    padding: 10px 15px;
+    height: 20vh;
+    width: 90vw;
+    overflow-y: scroll;
+    background-color: rgb(51, 51, 51);
+    border-radius: 5px 5px 0px 0px;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.comment-section {
+    height: 50vh;
+    width: 90vw;
+    margin: auto;
+    border-radius: 5px 5px 0px 0px;
+    overflow-y: scroll;
+}
+
+.comment-scroll {
+    width: 80vw;
+    margin: auto;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0px 14px 80px rgba(34, 35, 58, 0.2);
+}
+
+.commentor {
+    color: #7b7992;
+    display: block;
+    font-weight: 500;
+}
+
+.add-comment {
+    height: 6vh;
+}
+
+.add-comment textarea {
+    height: 6vh;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    resize: none;
+}
+
+.tags {
+    background-color: rgb(62, 114, 255);
+    padding: 1px 3px;
+    display: inline;
+    border-radius: 5px;
+}
+
+form {
+    padding: 10px 20px;
+    background: #fefefe;
+    border: 2px solid rgb(62, 114, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+textarea {
+    width: 48vw;
+    resize: none;
+    z-index: 2;
+    height: 4vw;
+    background-color: rgb(241, 241, 241);
+    border: none;
+    padding: 1px;
+}
+
+.add-comment button {
+    float: right;
+    background-color: rgb(241, 243, 255);
+    border: none;
+    outline: none;
+    padding: 5px;
+    width: 10%;
+    border-radius: 0px 0px 3px 3px;
+    color: #61a6ff;
+    border: 1px solid #61a6ff;
+    display: block;
+    font-weight: 900;
+}
+
+.comment-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.comment-section::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(138, 202, 255, 0.3);
+    box-shadow: inset 0 0 6px rgba(138, 202, 255, 0.3);
+}
+
+.comment-section::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(112, 215, 255, 0.5);
+    box-shadow: inset 0 0 6px rgba(112, 215, 255, 0.5);
+}
+
+.blog-body::-webkit-scrollbar {
+    width: 12px;
+}
+
+.blog-body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(160, 160, 160, 0.3);
+    box-shadow: inset 0 0 6px rgba(160, 160, 160, 0.3);
+}
+
+.blog-body::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.5);
+    box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.5);
+}
+
+.close {
+    float: right;
+    position: absolute;
+    right: 2vw;
+    top: 2vh;
+}
+
+.options {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px;
+    background-color: white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.options button {
+    margin: 5px;
+    cursor: pointer;
+    display: inline-flex;
+    background-image: linear-gradient(147deg, #55c1ff 0%, #6eb9ff 74%);
+    padding: 5px 8px;
+    border-radius: 60px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.options i:hover {
+    color: rgb(88, 188, 255);
+}
+
+.blog-button {
+    display: inline-flex;
+    color: rgb(13, 158, 255);
+    text-decoration: none;
+    font-weight: 500;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent;
+    letter-spacing: 1px;
+    border: none;
+}
+
+.blog-button:hover {
+    color: #168eff;
+}
+
+.delete {
+    color: crimson;
+}
